@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
  * @author PoojaV
  *
  */
-public class calenderDateSelection 
+public class calenderDateSelection
 {
 	public static void DatePicker(WebDriver driver,String xpath,String number)
 	{
