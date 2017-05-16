@@ -28,14 +28,14 @@ public class calenderDateSelection
 			if(date.equals(number))
 			{
 				allDates.get(i).click();
-				
-			System.out.println("selected date from the Datepicker is "+number);
-				
+
+				System.out.println("selected date from the Datepicker is "+number);
+
 				break;
 			}
 
 		}
-
+		
 	}
 
 

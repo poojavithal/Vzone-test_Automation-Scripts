@@ -27,4 +27,13 @@ public class elementClickAble
 
 		act.moveToElement(driver.findElement(By.xpath(Id))).click().build().perform();
 	}
+	public static void clickForcssSelector(WebDriver driver,String cssSelector)
+	{
+		Actions act=new Actions(driver);
+
+		act.moveToElement(driver.findElement(By.cssSelector(cssSelector))).click().build().perform();
+	}
+
 }
+
+

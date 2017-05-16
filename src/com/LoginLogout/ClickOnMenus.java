@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.Libaray.synchronizationHandling;
 import com.Libaray.takeScreenshots;
 import com.LoginLogout.BaseClass;
 import com.relevantcodes.extentreports.LogStatus;
@@ -28,17 +30,17 @@ public class ClickOnMenus extends BaseClass
 		{
 			driver.navigate().refresh();
 
-			LoginToVzone.ValidLogin();
+			LoginToVzone.LoginValid();
 
 			report.startTest("open Inbox page");
 
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
-			driver.findElement(By.id("DASHBOARD")).click();
+			synchronizationHandling.isElementPresntById(driver, "DASHBOARD", 30).click();
 
 			logger.log(LogStatus.INFO, "Clicked on dashboard menu");
 
-			driver.findElement(By.xpath("//a[@href='http://test.vzone.vmokshagroup.com/Inbox']")).click();
+			synchronizationHandling.isElementPresntByXpath(driver, "//a[@href='http://test.vzone.vmokshagroup.com/Inbox']", 30).click();
 
 			logger.log(LogStatus.INFO, "Clicked on Inbox submenu");
 
@@ -66,11 +68,11 @@ public class ClickOnMenus extends BaseClass
 
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
-			driver.findElement(By.id("DASHBOARD")).click();
+			synchronizationHandling.isElementPresntById(driver, "DASHBOARD", 30).click();
 
 			logger.log(LogStatus.INFO, "Clicked on dashboard menu");
 
-			driver.findElement(By.xpath(".//a[@href='http://test.vzone.vmokshagroup.com/HR/Dashboard']")).click();
+			synchronizationHandling.isElementPresntByXpath(driver, "//a[@href='http://test.vzone.vmokshagroup.com/HR/Dashboard']", 30).click();
 
 			logger.log(LogStatus.INFO, "Clicked on HR submenu");
 
@@ -83,7 +85,7 @@ public class ClickOnMenus extends BaseClass
 		}
 		// url2 condition
 		String url2=driver.getCurrentUrl();
-		
+
 		Assert.assertTrue(url2.contains("HR"),"page is not HR,sorry we are in wrong page");
 
 		logger.log(LogStatus.PASS, "HR page opens successfully");
@@ -103,9 +105,9 @@ public class ClickOnMenus extends BaseClass
 
 		logger.log(LogStatus.PASS, "Employee(s)tab verified");
 
-		driver.findElement(By.xpath(".//*[@id='divEmployee']/div[1]/p")).click();
+		synchronizationHandling.isElementPresntByXpath(driver, "//*[@id='divEmployee']/div[1]/p", 30).click();
 
-         logger.log(LogStatus.INFO, "clicked on Employee(s)Tab");
+		logger.log(LogStatus.INFO, "clicked on Employee(s)Tab");
 
 		driver.navigate().refresh();
 
@@ -115,9 +117,9 @@ public class ClickOnMenus extends BaseClass
 		System.out.println("Name on the tab is "+tabname2);
 
 		Assert.assertTrue(tabname2.contains("Attendance")," Tabname is not Attendance,it is different tab");
-		
+
 		logger.log(LogStatus.PASS, "Attendance tab verified");
-		
+
 		driver.navigate().refresh();
 
 
@@ -132,12 +134,12 @@ public class ClickOnMenus extends BaseClass
 
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
-			driver.findElement(By.id("DASHBOARD")).click();
-			
+			synchronizationHandling.isElementPresntById(driver, "DASHBOARD", 30).click();
+
 			logger.log(LogStatus.INFO, "Clicked on dashboard menu");
 
-			driver.findElement(By.xpath(".//*[@id='divDASHBOARD']/li[4]/a")).click();
-			
+			synchronizationHandling.isElementPresntByXpath(driver, "//*[@id='divDASHBOARD']/li[4]/a", 30).click();
+
 			logger.log(LogStatus.INFO, "Clicked on Recuiter submenu");
 
 			takeScreenshots.capturescreenshot(driver, "Recuiterpage");
@@ -151,9 +153,9 @@ public class ClickOnMenus extends BaseClass
 		String url3=driver.getCurrentUrl();
 
 		Assert.assertTrue(url3.contains("Recruiters"),"page is not Recruiters,sorry we are in wrong page");
-		
+
 		logger.log(LogStatus.PASS, "Recruiter page opens successfully");
-	
+
 	}
 
 }
